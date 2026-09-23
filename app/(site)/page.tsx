@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import DeferredSections from "@/src/components/Home/DeferredSections";
 
 const About = dynamic(() => import("@/src/components/About/About"));
-const Experience = dynamic(() => import("@/src/components/Experience/Experience"));
+const Services = dynamic(() => import("@/src/components/Services/Services"));
 const Footer = dynamic(() => import("@/src/components/Footer/Footer"));
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
     <main className="flex flex-col w-full relative overflow-clip">
       <Hero />
       <About />
-      <Experience />
+      <Services />
       <DeferredSections />
       <Footer />
     </main>

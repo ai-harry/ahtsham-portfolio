@@ -50,7 +50,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScrollTarget = () => {
-      const sectionIds = ["about", "experience", "shorts", "films", "contact"];
+      const sectionIds = ["about", "services", "work", "contact"];
       let current = "";
       for (const id of sectionIds) {
         const el = document.getElementById(id);
@@ -129,9 +129,8 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {[
               { name: "About", href: "/#about" },
-              { name: "Experience", href: "/#experience" },
-              { name: "Short Form", href: "/#shorts" },
-              { name: "Long Form", href: "/#films" },
+              { name: "Services", href: "/#services" },
+              { name: "Work", href: "/#work" },
             ].map((item) => {
               const isActive = item.href.startsWith("/#")
                 ? activeSection === item.href.split("#")[1]
@@ -218,9 +217,8 @@ export default function Navbar() {
           <div className="flex flex-col gap-10">
             {[
               { name: "About", href: "/#about" },
-              { name: "Experience", href: "/#experience" },
-              { name: "Short Form", href: "/#shorts" },
-              { name: "Long Form", href: "/#films" },
+              { name: "Services", href: "/#services" },
+              { name: "Work", href: "/#work" },
               { name: "Contact", href: "/contact" },
             ].map((item) => (
               <Link
