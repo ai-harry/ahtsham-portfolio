@@ -24,8 +24,9 @@ export default function WorkCard({ video, index, feature = false, onOpen, should
 
   const enter = () => {
     setHovered(true);
-    // Self-hosted clips have no audio track, so a muted inline preview is free
-    // to start. `preload="none"` keeps it off the wire until this moment.
+    // Muted so an inline preview never blares audio on hover, and because
+    // browsers block unmuted autoplay. `preload="none"` keeps the file off the
+    // wire until this moment.
     const el = videoRef.current;
     if (el) {
       el.currentTime = 0;
@@ -122,7 +123,7 @@ export default function WorkCard({ video, index, feature = false, onOpen, should
         className={`absolute inset-0 flex items-center justify-center transition-all duration-500 pointer-events-none
           ${hovered ? "opacity-0 scale-110" : "opacity-100 scale-100"}`}
       >
-        <span className={`glass-play flex items-center justify-center rounded-full ${feature ? "w-20 h-20" : "w-16 h-16"}`}>
+        <span className={`glass-play backdrop-blur-lg backdrop-saturate-150 flex items-center justify-center rounded-full ${feature ? "w-20 h-20" : "w-16 h-16"}`}>
           <svg className={`ml-1 text-white ${feature ? "w-8 h-8" : "w-6 h-6"}`} fill="currentColor" viewBox="0 0 24 24">
             <path d="M8 5v14l11-7z" />
           </svg>

@@ -113,8 +113,6 @@ html, body {
     rgba(255, 255, 255, 0.06) 45%,
     rgba(255, 255, 255, 0.16) 100%
   );
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.38);
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.55),
@@ -125,3 +123,35 @@ html, body {
 .glass-play svg {
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
 }
+
+/* ── Navbar: liquid glass over a light page ──
+   The play lens (.glass-play) is tuned for white glass over dark video. The nav
+   floats over a near-white page and over the dark About and Services panels, so
+   it needs a heavier white tint to stay legible for dark text, with the same
+   saturate + inset-highlight treatment that reads as refraction. */
+.glass-nav {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(255, 255, 255, 0.52) 45%,
+    rgba(255, 255, 255, 0.68) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.95),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.4),
+    0 10px 34px rgba(17, 17, 17, 0.11),
+    0 2px 8px rgba(17, 17, 17, 0.05);
+}
+
+/* The mobile drawer sits on the same material. */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: inset 1px 0 1px rgba(255, 255, 255, 0.85), -10px 0 40px rgba(17, 17, 17, 0.12);
+}
+
+/* NOTE: the blur for .glass-play, .glass-nav and .glass-panel comes from
+   Tailwind's backdrop-blur/backdrop-saturate utilities on the elements
+   themselves. A hand-written `backdrop-filter` in this file is stripped by the
+   v4 CSS pipeline, so these classes only carry the tint, border and highlights. */

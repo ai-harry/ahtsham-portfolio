@@ -95,7 +95,7 @@ export default function WorkShowcase() {
     <>
       <section
         id="work"
-        className="relative z-20 bg-[#FAFAFA] scroll-mt-24 md:scroll-mt-28 pt-24 md:pt-32 pb-24 md:pb-32 overflow-hidden"
+        className="relative z-20 bg-[#FAFAFA] scroll-mt-24 md:scroll-mt-28 pt-24 md:pt-32 pb-[max(7rem,36vw)] md:pb-[max(9rem,16vw)] overflow-hidden"
       >
         <style
           dangerouslySetInnerHTML={{

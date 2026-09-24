@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import gsap from "gsap";
 import type { WorkVideo } from "@/src/data/work";
 import { categories } from "@/src/data/work";
@@ -21,6 +21,20 @@ export default function VideoLightbox({ video, onClose }: Props) {
   const stageRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const localVideoRef = useRef<HTMLVideoElement>(null);
+
+  // These clips carry real audio, so open with sound. Browsers block unmuted
+  // autoplay unless the page has engagement, so fall back to muted rather than
+  // leaving the viewer looking at a paused first frame.
+  const startLocalPlayback = useCallback(() => {
+    const el = localVideoRef.current;
+    if (!el) return;
+    el.muted = false;
+    el.play().catch(() => {
+      el.muted = true;
+      void el.play().catch(() => {});
+    });
+  }, []);
 
   // Escape to close, plus a scroll lock while open.
   useEffect(() => {
@@ -107,17 +121,15 @@ export default function VideoLightbox({ video, onClose }: Props) {
                 className="absolute inset-0 h-full w-full border-0"
               />
             ) : (
-              /* Source clips carry no audio track, so muted autoplay is safe and
-                 guaranteed to start without a gesture. */
               <video
+                ref={localVideoRef}
                 key={video.source.src}
                 src={video.source.src}
                 poster={video.thumbnail}
                 controls
                 autoPlay
-                muted
-                loop
                 playsInline
+                onLoadedMetadata={startLocalPlayback}
                 className="absolute inset-0 h-full w-full object-contain"
               />
             )}

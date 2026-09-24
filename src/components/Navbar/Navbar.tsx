@@ -99,7 +99,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[calc(100%-2rem)] md:w-auto rounded-2xl md:rounded-full bg-[#ffffff]/80 backdrop-blur-xl border border-[#e6e6e6] shadow-sm ${scrolled
+        className={`glass-nav backdrop-blur-2xl backdrop-saturate-[1.85] fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[calc(100%-2rem)] md:w-auto rounded-2xl md:rounded-full ${scrolled
           ? "top-3 sm:top-4 py-2 sm:py-3"
           : "top-4 sm:top-6 py-3 sm:py-4"
           }`}
@@ -199,7 +199,7 @@ export default function Navbar() {
 
         {/* Drawer Menu */}
         <div
-          className={`absolute top-0 right-0 w-full sm:w-[80%] max-w-sm h-full bg-[#ffffff] border-l border-[#e6e6e6]/50 flex flex-col justify-center px-12 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${isMobileOpen ? "translate-x-0" : "translate-x-full"
+          className={`glass-panel backdrop-blur-2xl backdrop-saturate-[1.8] absolute top-0 right-0 w-full sm:w-[80%] max-w-sm h-full flex flex-col justify-center px-12 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${isMobileOpen ? "translate-x-0" : "translate-x-full"
             }`}
         >
           {/* Dedicated Close Button */}

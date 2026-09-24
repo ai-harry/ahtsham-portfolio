@@ -60,7 +60,16 @@ export type WorkVideo = {
 };
 
 const yt = (id: string): VideoSource => ({ kind: "youtube", youtubeId: id });
-const local = (name: string): VideoSource => ({ kind: "local", src: `/work/clips/${name}.mp4` });
+/**
+ * next.config serves .mp4 with `immutable` for a year, which is right for perf
+ * but means a replaced clip at the same path would stay stale for returning
+ * visitors. Bump CLIP_VERSION whenever the files in /public/work/clips change.
+ */
+const CLIP_VERSION = 2;
+const local = (name: string): VideoSource => ({
+  kind: "local",
+  src: `/work/clips/${name}.mp4?v=${CLIP_VERSION}`,
+});
 
 export const work: WorkVideo[] = [
   // ── Real Estate ────────────────────────────────────────────────────────────
@@ -71,7 +80,7 @@ export const work: WorkVideo[] = [
     format: "Property tour",
     style: "Cinematic, graded",
     orientation: "vertical",
-    duration: "23s",
+    duration: "19s",
     principle: "Aspiration framing",
     hook: "Sell the life, and the house comes with it.",
     note: "Exterior, pool and interior cut as one continuous move, with a day-to-evening turn in the middle so the property gets two different moods in under half a minute. A figure walks the frame purely to give the architecture human scale.",
@@ -85,7 +94,7 @@ export const work: WorkVideo[] = [
     format: "Property tour",
     style: "Shallow depth, warm grade",
     orientation: "vertical",
-    duration: "16s",
+    duration: "22s",
     principle: "Sensory detail",
     hook: "Finishes sell the room, so hold on the finishes.",
     note: "Shallow focus keeps the eye on cabinetry and flooring rather than the empty middle of the room. Cut to a walking pace instead of a music beat, which is what stops a listing video reading as an advert.",
@@ -99,7 +108,7 @@ export const work: WorkVideo[] = [
     format: "Testimonial",
     style: "Clean iconography",
     orientation: "landscape",
-    duration: "23s",
+    duration: "48s",
     principle: "Specific proof",
     hook: "One number does more work than a paragraph.",
     note: "A straight talking-head testimonial carried by a single animated figure on screen. The number lands before the claim is finished, so the viewer has the evidence in hand while the sentence is still arriving.",
@@ -115,7 +124,7 @@ export const work: WorkVideo[] = [
     format: "3D product showcase",
     style: "Glitch, studio render",
     orientation: "landscape",
-    duration: "17s",
+    duration: "26s",
     principle: "Pattern interrupt",
     hook: "Corrupt the frame, then reveal the car clean.",
     note: "Digital glitch and VHS corruption run over the opening so the reveal of the studio-lit 3D model reads as a payoff. Spec callouts sit on an engine-bay cutaway rather than floating in dead space.",
@@ -231,7 +240,7 @@ export const work: WorkVideo[] = [
     format: "Essay short",
     style: "Archive stills, 3D objects",
     orientation: "vertical",
-    duration: "24s",
+    duration: "1m 00s",
     principle: "Contrast effect",
     hook: "Identical output, missing something vital.",
     note: "Vintage film-camera archive is cut against clean 3D renders so the argument is made by the edit rather than the narration. A director redirecting light with sheet metal sits directly beside an AI logo, and the comparison does the work.",
@@ -289,7 +298,7 @@ export const work: WorkVideo[] = [
     format: "Talking head",
     style: "Kinetic type, warm grade",
     orientation: "vertical",
-    duration: "19s",
+    duration: "12s",
     principle: "Pattern interrupt",
     hook: "Cut the type to the face, not to the beat.",
     note: "Text reveals are timed to the speaker's expressions and head movement rather than to the music, which gives an abstract financial pitch a comic rhythm and keeps the eye moving across a static frame.",
@@ -303,7 +312,7 @@ export const work: WorkVideo[] = [
     format: "Explainer short",
     style: "Mixed media, print objects",
     orientation: "vertical",
-    duration: "18s",
+    duration: "40s",
     principle: "Credible sourcing",
     hook: "Put the receipt on the table, literally.",
     note: "Business history told with physical objects: a printed photograph on a desk transitioning into a newspaper clipping. Treating the evidence as a prop makes a statistic feel like a document rather than a caption.",
@@ -389,7 +398,7 @@ export const work: WorkVideo[] = [
     format: "Podcast, talking head",
     style: "Low-key cinematic",
     orientation: "landscape",
-    duration: "29s",
+    duration: "39s",
     principle: "Authority framing",
     hook: "Borrow gravity from something older than the claim.",
     note: "Low-key lighting on a boom-mic setup, cut against a greyscale classical sculpture carrying a scripture quote. Placing a revenue figure next to an ancient warning about wealth gives a business clip an unexpected weight.",
@@ -419,7 +428,7 @@ export const work: WorkVideo[] = [
     format: "Essay short",
     style: "3D figures, pastel gradient",
     orientation: "vertical",
-    duration: "25s",
+    duration: "59s",
     principle: "Reframing",
     hook: "Same labour, opposite meaning.",
     note: "Scale is used as the argument: an oversized backpack and a giant paintbrush put a gym membership and a mountain carry in the same frame. Visual irony carries a point that narration would flatten.",
@@ -433,7 +442,7 @@ export const work: WorkVideo[] = [
     format: "Essay short",
     style: "Vintage monochrome, 3D props",
     orientation: "vertical",
-    duration: "17s",
+    duration: "52s",
     principle: "Curiosity gap",
     hook: "Set up the physicist, pay off the musician.",
     note: "Period monochrome and film grain composited with modern 3D props. Tactile objects, a pocket watch and a violin, are used as metaphors for time and craft instead of stating either out loud.",
@@ -444,13 +453,13 @@ export const work: WorkVideo[] = [
     slug: "neon-motion-study",
     title: "Neon Movement Study",
     category: "brand-motion",
-    format: "3D character animation",
-    style: "Neon geometry, warm-cool split",
+    format: "3D animation",
+    style: "Neon city, warm-cool split",
     orientation: "landscape",
-    duration: "14s",
+    duration: "52s",
     principle: "Visual momentum",
-    hook: "Let the room move so the figure does not have to.",
-    note: "A rigged figure runs through a geometric neon corridor where receding perspective lines pull the eye into frame. Warm skin against teal architecture keeps the subject readable at every pose.",
+    hook: "Let the world move so the subject does not have to.",
+    note: "A 3D hand rides a board down a neon city corridor, with receding light trails doing the work of a camera move. Warm skin tones against the cool architecture keep the subject readable at every frame, and the speed is sold by the environment rather than by cutting.",
     thumbnail: "/work/clips/neon-motion-study.jpg",
     source: local("neon-motion-study"),
   },
