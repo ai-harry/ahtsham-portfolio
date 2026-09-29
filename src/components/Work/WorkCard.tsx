@@ -124,7 +124,10 @@ export default function WorkCard({ video, index, feature = false, onOpen, should
           ${hovered ? "opacity-0 scale-110" : "opacity-100 scale-100"}`}
       >
         <span className={`glass-play backdrop-blur-2xl backdrop-saturate-[1.8] flex items-center justify-center rounded-full ${feature ? "w-20 h-20" : "w-16 h-16"}`}>
-          <svg className={`ml-1 text-[#141414] ${feature ? "w-8 h-8" : "w-6 h-6"}`} fill="currentColor" viewBox="0 0 24 24">
+          {/* No optical nudge: the path is drawn at x 8..19 in a 24 box, so its
+              centroid already sits on the viewBox centre. An extra margin here
+              pushed the triangle visibly right of the lens. */}
+          <svg className={`text-white ${feature ? "w-8 h-8" : "w-6 h-6"}`} fill="currentColor" viewBox="0 0 24 24">
             <path d="M8 5v14l11-7z" />
           </svg>
         </span>
