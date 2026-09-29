@@ -1,11 +1,13 @@
 /**
  * Portfolio video index.
  *
- * Two kinds of source live side by side:
- *  - `youtube` items embed on click, and their thumbnails are vendored under
- *    /public/work so the grid renders without calling i.ytimg.com.
- *  - `local` items are self-hosted MP4s under /public/work/clips, transcoded
- *    from the original screen recordings (60fps ~9Mbps down to 30fps CRF 27).
+ * Almost everything is a self-hosted MP4 under /public/work/clips, transcoded
+ * from the client masters to 720p CRF 27. Self-hosting is what lets a card play
+ * a muted preview on hover; a YouTube embed cannot do that.
+ *
+ * The three long-form documentaries stay on `youtube`. They run 17 to 23
+ * minutes, so hosting them here would cost hundreds of megabytes for a preview
+ * nobody watches to the end. They embed on click and show a static thumbnail.
  *
  * `category` is the industry axis the filter uses. `orientation` decides which
  * block an item renders in, because 9:16 and 16:9 need different tiles.
@@ -65,7 +67,7 @@ const yt = (id: string): VideoSource => ({ kind: "youtube", youtubeId: id });
  * but means a replaced clip at the same path would stay stale for returning
  * visitors. Bump CLIP_VERSION whenever the files in /public/work/clips change.
  */
-const CLIP_VERSION = 2;
+const CLIP_VERSION = 3;
 const local = (name: string): VideoSource => ({
   kind: "local",
   src: `/work/clips/${name}.mp4?v=${CLIP_VERSION}`,
@@ -178,7 +180,7 @@ export const work: WorkVideo[] = [
 
   // ── Tech & AI ──────────────────────────────────────────────────────────────
   {
-    slug: "asADXz7VFLs",
+    slug: "anthropic-model-announcement",
     title: "Anthropic Model Announcement",
     category: "tech-ai",
     format: "Talking head, kinetic type",
@@ -188,11 +190,11 @@ export const work: WorkVideo[] = [
     principle: "Progressive disclosure",
     hook: "One idea per beat, never two.",
     note: "Presenter cut against full-bleed type that lands on the beat, with product screenshots dropped in as evidence rather than described. The type is scaled large enough to carry the emphasis a voice would, so it still reads with the sound off.",
-    thumbnail: "/work/shorts/asADXz7VFLs.jpg",
-    source: yt("asADXz7VFLs"),
+    thumbnail: "/work/clips/anthropic-model-announcement.jpg",
+    source: local("anthropic-model-announcement"),
   },
   {
-    slug: "EpXuouW04Pc",
+    slug: "conways-game-of-life",
     title: "Conway's Game of Life",
     category: "tech-ai",
     format: "Talking head, 3D inserts",
@@ -202,11 +204,11 @@ export const work: WorkVideo[] = [
     principle: "Aha moment",
     hook: "Show the rule running before you name it.",
     note: "Opens inside a 3D circuit-board flythrough lit by a single travelling trace, then cuts to the presenter and on to real product capture. The abstract idea is established visually before any interface appears, so the demo lands as proof rather than as a tutorial.",
-    thumbnail: "/work/shorts/EpXuouW04Pc.jpg",
-    source: yt("EpXuouW04Pc"),
+    thumbnail: "/work/clips/conways-game-of-life.jpg",
+    source: local("conways-game-of-life"),
   },
   {
-    slug: "n53KdMaZ7GY",
+    slug: "google-gemma-explained",
     title: "Google Gemma, Explained",
     category: "tech-ai",
     format: "Talking head, screen capture",
@@ -216,11 +218,11 @@ export const work: WorkVideo[] = [
     principle: "Relevance and recency",
     hook: "New information is its own hook.",
     note: "A news-led explainer that alternates presenter and source material, showing the announcement itself rather than describing it. No preamble: the edit gets to the delta and lets oversized type carry the pacing between cuts.",
-    thumbnail: "/work/shorts/n53KdMaZ7GY.jpg",
-    source: yt("n53KdMaZ7GY"),
+    thumbnail: "/work/clips/google-gemma-explained.jpg",
+    source: local("google-gemma-explained"),
   },
   {
-    slug: "jdsT7IOtHTA",
+    slug: "claude-opus-explained",
     title: "Claude Opus, Explained",
     category: "tech-ai",
     format: "Motion graphics, screen capture",
@@ -230,8 +232,8 @@ export const work: WorkVideo[] = [
     principle: "Cognitive ease",
     hook: "Make a launch feel simple enough to repeat.",
     note: "Stylised 3D product marks anchor each section and the announcement page is shown directly as proof. Motion is used sparingly for emphasis rather than decoration, and clean typographic hierarchy does most of the explaining.",
-    thumbnail: "/work/shorts/jdsT7IOtHTA.jpg",
-    source: yt("jdsT7IOtHTA"),
+    thumbnail: "/work/clips/claude-opus-explained.jpg",
+    source: local("claude-opus-explained"),
   },
   {
     slug: "cinema-vs-ai",
@@ -248,7 +250,7 @@ export const work: WorkVideo[] = [
     source: local("cinema-vs-ai"),
   },
   {
-    slug: "8NCuBNUBjN8",
+    slug: "whatsapp-booking-automation",
     title: "WhatsApp Booking Automation",
     category: "tech-ai",
     format: "SaaS explainer",
@@ -258,13 +260,13 @@ export const work: WorkVideo[] = [
     principle: "Cognitive ease",
     hook: "Make the product look simpler than the problem.",
     note: "Screen recordings rebuilt as clean device mockups, sequenced laptop to phone so cross-platform use is shown rather than claimed. Every step is staged to make the software feel inevitable.",
-    thumbnail: "/work/long/8NCuBNUBjN8.jpg",
-    source: yt("8NCuBNUBjN8"),
+    thumbnail: "/work/clips/whatsapp-booking-automation.jpg",
+    source: local("whatsapp-booking-automation"),
   },
 
   // ── Finance & Business ─────────────────────────────────────────────────────
   {
-    slug: "I5_PNxTEETo",
+    slug: "trade-with-our-capital",
     title: "Trade With Our Capital",
     category: "finance",
     format: "Talking head, UI overlay",
@@ -274,22 +276,22 @@ export const work: WorkVideo[] = [
     principle: "Risk reversal",
     hook: "Answer the objection before it forms.",
     note: "Translucent trading-platform overlays borrow the visual grammar of the real product, so the numbers read as a live account rather than as marketing. The objection is handled in the first line.",
-    thumbnail: "/work/shorts/I5_PNxTEETo.jpg",
-    source: yt("I5_PNxTEETo"),
+    thumbnail: "/work/clips/trade-with-our-capital.jpg",
+    source: local("trade-with-our-capital"),
   },
   {
-    slug: "Dc_aYZ3xbig",
+    slug: "ffb-business-funding",
     title: "FFB Business Funding Offer",
     category: "finance",
     format: "Talking head",
     style: "Clean corporate, mascot accent",
     orientation: "vertical",
-    duration: "35s",
+    duration: "34s",
     principle: "Loss aversion",
     hook: "Frame the cost of standing still.",
     note: "Direct-response structure with an animated mascot dropped in to stop a corporate talking head from going flat. Supers carry the terms so the offer survives a muted watch.",
-    thumbnail: "/work/shorts/Dc_aYZ3xbig.jpg",
-    source: yt("Dc_aYZ3xbig"),
+    thumbnail: "/work/clips/ffb-business-funding.jpg",
+    source: local("ffb-business-funding"),
   },
   {
     slug: "galici-financial",
@@ -322,7 +324,7 @@ export const work: WorkVideo[] = [
 
   // ── Agency & Creator ───────────────────────────────────────────────────────
   {
-    slug: "usxuKVzPgV8",
+    slug: "what-you-get-with-my-edits",
     title: "What You Get With My Edits",
     category: "agency-creator",
     format: "Talking head",
@@ -332,11 +334,11 @@ export const work: WorkVideo[] = [
     principle: "Specificity bias",
     hook: "Concrete beats clever.",
     note: "Shot at night against a lit skyline so the backdrop does the production-value argument on its own. Every claim is paired with something visible, because specific and verifiable outsells polished and vague.",
-    thumbnail: "/work/shorts/usxuKVzPgV8.jpg",
-    source: yt("usxuKVzPgV8"),
+    thumbnail: "/work/clips/what-you-get-with-my-edits.jpg",
+    source: local("what-you-get-with-my-edits"),
   },
   {
-    slug: "tCAED5HFBTc",
+    slug: "dark-seas-division",
     title: "Dark Seas Division",
     category: "agency-creator",
     format: "Brand film",
@@ -346,11 +348,11 @@ export const work: WorkVideo[] = [
     principle: "Social proof",
     hook: "Show the room before you make the claim.",
     note: "Coloured practicals build depth behind the subject so a single-camera setup still reads as a studio. Pacing sits slightly behind the music, which makes the agency feel considered rather than urgent.",
-    thumbnail: "/work/shorts/tCAED5HFBTc.jpg",
-    source: yt("tCAED5HFBTc"),
+    thumbnail: "/work/clips/dark-seas-division.jpg",
+    source: local("dark-seas-division"),
   },
   {
-    slug: "3EdR4dVm62Y",
+    slug: "qualified-leads-contractors",
     title: "Qualified Leads For Contractors",
     category: "agency-creator",
     format: "Direct response",
@@ -360,11 +362,11 @@ export const work: WorkVideo[] = [
     principle: "Problem, agitate, solve",
     hook: "Name the pain in the first line.",
     note: "Shot outdoors in daylight rather than in a studio, which reads as approachable for a trades audience. The agitation beat runs just long enough to be felt and is cut before it becomes a lecture.",
-    thumbnail: "/work/shorts/3EdR4dVm62Y.jpg",
-    source: yt("3EdR4dVm62Y"),
+    thumbnail: "/work/clips/qualified-leads-contractors.jpg",
+    source: local("qualified-leads-contractors"),
   },
   {
-    slug: "Gl55HZfDj40",
+    slug: "in-house-content-team",
     title: "In-House Content Team?",
     category: "agency-creator",
     format: "Podcast clip",
@@ -374,22 +376,36 @@ export const work: WorkVideo[] = [
     principle: "Open loop",
     hook: "Enter mid-argument, leave before the answer.",
     note: "Pulled from long-form podcast footage and cut to open on the most contested sentence in the conversation, which hands the viewer a position to disagree with inside the first second.",
-    thumbnail: "/work/shorts/Gl55HZfDj40.jpg",
-    source: yt("Gl55HZfDj40"),
+    thumbnail: "/work/clips/in-house-content-team.jpg",
+    source: local("in-house-content-team"),
   },
   {
-    slug: "dowMFYrRmv8",
+    slug: "whop-clipping-before-after",
     title: "Whop Clipping, Before and After",
     category: "agency-creator",
     format: "Promo, before/after",
     style: "Amber grade, split layout",
     orientation: "landscape",
-    duration: "17s",
+    duration: "16s",
     principle: "Contrast effect",
     hook: "The gap does the persuading.",
     note: "Before and after only works when the cut between the two states is tight enough to feel. Labels sit in a fixed layout so the eye compares the same region of frame twice.",
-    thumbnail: "/work/long/dowMFYrRmv8.jpg",
-    source: yt("dowMFYrRmv8"),
+    thumbnail: "/work/clips/whop-clipping-before-after.jpg",
+    source: local("whop-clipping-before-after"),
+  },
+  {
+    slug: "podcast-clip-before-after",
+    title: "Podcast Clip, Before and After",
+    category: "agency-creator",
+    format: "Before/after comparison",
+    style: "Split stack, kinetic captions",
+    orientation: "vertical",
+    duration: "15s",
+    principle: "Demonstrated proof",
+    hook: "Run the raw take underneath the finished one.",
+    note: "The untouched camera file plays in the lower pane for the whole clip while the graded cut runs above it, so the improvement is never claimed in words. Word-by-word captions, cutaway inserts and full-frame graphic cards land only on the upper pane, which lets a prospective client watch the difference appear rather than take it on trust.",
+    thumbnail: "/work/clips/podcast-clip-before-after.jpg",
+    source: local("podcast-clip-before-after"),
   },
   {
     slug: "founder-podcast",
@@ -408,7 +424,7 @@ export const work: WorkVideo[] = [
 
   // ── Brand & Motion ─────────────────────────────────────────────────────────
   {
-    slug: "FazhFpFj_S0",
+    slug: "brand-reveal",
     title: "Brand Reveal",
     category: "brand-motion",
     format: "Pure motion graphics",
@@ -418,8 +434,8 @@ export const work: WorkVideo[] = [
     principle: "Peak-end rule",
     hook: "Build tension, spend it all on the resolve.",
     note: "No footage and no voice. Translucent type flows through a light-bloomed field with the easing tightening as the sequence runs, so the final beat reads as arrival rather than as a stop.",
-    thumbnail: "/work/shorts/FazhFpFj_S0.jpg",
-    source: yt("FazhFpFj_S0"),
+    thumbnail: "/work/clips/brand-reveal.jpg",
+    source: local("brand-reveal"),
   },
   {
     slug: "effort-perspective",
@@ -466,7 +482,7 @@ export const work: WorkVideo[] = [
 
   // ── Health & Fitness ───────────────────────────────────────────────────────
   {
-    slug: "cougRSzEb6g",
+    slug: "lower-resting-heart-rate",
     title: "Lower Your Resting Heart Rate",
     category: "health-fitness",
     format: "Podcast clip, animated overlay",
@@ -476,11 +492,11 @@ export const work: WorkVideo[] = [
     principle: "Curiosity gap",
     hook: "Ask the question, withhold the answer.",
     note: "An animated anatomical heart runs alongside the speaker so a static interview frame keeps moving. The claim lands early and the payoff is deliberately deferred to the last beat.",
-    thumbnail: "/work/shorts/cougRSzEb6g.jpg",
-    source: yt("cougRSzEb6g"),
+    thumbnail: "/work/clips/lower-resting-heart-rate.jpg",
+    source: local("lower-resting-heart-rate"),
   },
   {
-    slug: "imn_eetyjHg",
+    slug: "shredfast-anywhere",
     title: "ShredFast, Get In Shape Anywhere",
     category: "health-fitness",
     format: "UGC product demo",
@@ -490,11 +506,11 @@ export const work: WorkVideo[] = [
     principle: "Identity appeal",
     hook: "Sell who they become, not what it does.",
     note: "The app is shown running on a handheld phone inside the gym rather than as a clean screen recording, so the product is demonstrated in the exact situation it is meant for. Readable at thumb size with the sound off.",
-    thumbnail: "/work/shorts/imn_eetyjHg.jpg",
-    source: yt("imn_eetyjHg"),
+    thumbnail: "/work/clips/shredfast-anywhere.jpg",
+    source: local("shredfast-anywhere"),
   },
   {
-    slug: "ZNquNvQzrCQ",
+    slug: "coaching-talking-head",
     title: "Coaching Talking Head",
     category: "health-fitness",
     format: "Talking head",
@@ -504,8 +520,8 @@ export const work: WorkVideo[] = [
     principle: "Pattern interrupt",
     hook: "Break the rhythm before attention breaks.",
     note: "A blue gel behind the subject isolates them from a dark background and gives a single-location coaching clip some depth. Scale jumps and supers land where retention curves usually dip.",
-    thumbnail: "/work/shorts/ZNquNvQzrCQ.jpg",
-    source: yt("ZNquNvQzrCQ"),
+    thumbnail: "/work/clips/coaching-talking-head.jpg",
+    source: local("coaching-talking-head"),
   },
 ];
 

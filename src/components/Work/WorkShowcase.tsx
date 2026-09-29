@@ -87,8 +87,9 @@ export default function WorkShowcase() {
     window.setTimeout(() => (drag.current.moved = false), 0);
   };
 
+  // Derived from the data so the count cannot drift when clips are added.
   const activeBlurb = filter === "all"
-    ? "Thirty pieces across short form, motion design and long-form film."
+    ? `${work.length} pieces across short form, motion design and long-form film.`
     : categories.find((c) => c.id === filter)?.blurb ?? "";
 
   return (
