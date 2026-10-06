@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   categories,
+  findWork,
   work,
   type CategoryId,
   type WorkVideo,
@@ -12,9 +13,80 @@ import VideoLightbox from "./VideoLightbox";
 
 type Filter = CategoryId | "all";
 
+function videoFromPath(pathname: string): WorkVideo | null {
+  const match = pathname.match(/^\/work\/([^/]+)\/?$/);
+  return match ? findWork(decodeURIComponent(match[1])) ?? null : null;
+}
+
+/**
+ * Bring the grid into view after a shared link is closed. One scroll is not
+ * enough: the pinned Services timeline only builds its spacer once the page
+ * scrolls past it, which pushes this section ~3,000px further down. So keep
+ * re-aiming until the section stops moving, and stop at once if the visitor
+ * starts scrolling themselves.
+ */
+function scrollToWorkWhenSettled() {
+  let cancelled = false;
+  const cancel = () => { cancelled = true; };
+  const inputs = ["wheel", "touchstart", "keydown"] as const;
+  inputs.forEach((e) => window.addEventListener(e, cancel, { once: true, passive: true }));
+
+  let aimedAt = NaN;
+  let stableTicks = 0;
+  let ticks = 0;
+  const tick = () => {
+    const el = document.getElementById("work");
+    if (cancelled || !el) return;
+    const top = el.getBoundingClientRect().top;
+    if (Number.isNaN(aimedAt) || Math.abs(top - aimedAt) > 2) {
+      el.scrollIntoView({ behavior: "instant" });
+      aimedAt = el.getBoundingClientRect().top;
+      stableTicks = 0;
+    } else {
+      stableTicks += 1;
+    }
+    if (stableTicks < 3 && ++ticks < 30) window.setTimeout(tick, 100);
+    else inputs.forEach((e) => window.removeEventListener(e, cancel));
+  };
+  window.setTimeout(tick, 50);
+}
+
 export default function WorkShowcase() {
   const [filter, setFilter] = useState<Filter>("all");
-  const [active, setActive] = useState<WorkVideo | null>(null);
+  // This component only ever renders on the client (see DeferredSections), so
+  // a shared /work/<slug> link can open its piece on the very first render.
+  const [active, setActive] = useState<WorkVideo | null>(() =>
+    videoFromPath(window.location.pathname)
+  );
+
+  // Every piece has its own address. Opening pushes /work/<slug> (marked as
+  // ours in history.state) so the link can be copied, and Back closes the
+  // player instead of leaving the site.
+  const openVideo = useCallback((video: WorkVideo) => {
+    setActive(video);
+    const path = `/work/${video.slug}`;
+    if (window.location.pathname !== path) {
+      window.history.pushState({ workOverlay: true }, "", path);
+    }
+  }, []);
+
+  const closeVideo = useCallback(() => {
+    setActive(null);
+    if (window.history.state?.workOverlay) {
+      window.history.back();
+    } else if (videoFromPath(window.location.pathname)) {
+      // Arrived straight from a shared link, so there is no entry of ours to
+      // pop. Swap the address for home and leave the visitor on the grid.
+      window.history.replaceState(null, "", "/");
+      scrollToWorkWhenSettled();
+    }
+  }, []);
+
+  useEffect(() => {
+    const onPop = () => setActive(videoFromPath(window.location.pathname));
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
   const railRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
@@ -203,7 +275,7 @@ export default function WorkShowcase() {
                   key={v.slug}
                   video={v}
                   index={i}
-                  onOpen={setActive}
+                  onOpen={openVideo}
                   shouldIgnoreClick={() => drag.current.moved}
                 />
               ))}
@@ -236,7 +308,7 @@ export default function WorkShowcase() {
                     video={v}
                     index={i}
                     feature={landscape.length > 2 && i === 0}
-                    onOpen={setActive}
+                    onOpen={openVideo}
                   />
                 ))}
               </div>
@@ -245,7 +317,7 @@ export default function WorkShowcase() {
         )}
       </section>
 
-      <VideoLightbox video={active} onClose={() => setActive(null)} />
+      <VideoLightbox video={active} onClose={closeVideo} />
     </>
   );
 }

@@ -1,19 +1,5 @@
-import Hero from "@/src/components/Hero/Hero";
-import dynamic from "next/dynamic";
-import DeferredSections from "@/src/components/Home/DeferredSections";
-
-const About = dynamic(() => import("@/src/components/About/About"));
-const Services = dynamic(() => import("@/src/components/Services/Services"));
-const Footer = dynamic(() => import("@/src/components/Footer/Footer"));
+import HomePage from "@/src/components/Home/HomePage";
 
 export default function Home() {
-  return (
-    <main className="flex flex-col w-full relative overflow-clip">
-      <Hero />
-      <About />
-      <Services />
-      <DeferredSections />
-      <Footer />
-    </main>
-  );
+  return <HomePage />;
 }

@@ -42,7 +42,11 @@ export type VideoSource =
   | { kind: "local"; src: string };
 
 export type WorkVideo = {
-  /** Stable key, also used for the thumbnail filename. */
+  /**
+   * Public URL segment: each piece opens at /work/<slug>. Derived from the
+   * title, but stored rather than computed so a retitle never silently breaks
+   * a link that has already been sent to a client.
+   */
   slug: string;
   title: string;
   category: CategoryId;
@@ -76,7 +80,7 @@ const local = (name: string): VideoSource => ({
 export const work: WorkVideo[] = [
   // ── Real Estate ────────────────────────────────────────────────────────────
   {
-    slug: "luxury-estate-tour",
+    slug: "luxury-estate-day-to-night",
     title: "Luxury Estate, Day to Night",
     category: "real-estate",
     format: "Property tour",
@@ -90,7 +94,7 @@ export const work: WorkVideo[] = [
     source: local("luxury-estate-tour"),
   },
   {
-    slug: "luxury-kitchen-tour",
+    slug: "open-plan-interior-walkthrough",
     title: "Open-Plan Interior Walkthrough",
     category: "real-estate",
     format: "Property tour",
@@ -120,7 +124,7 @@ export const work: WorkVideo[] = [
 
   // ── Automotive ─────────────────────────────────────────────────────────────
   {
-    slug: "bmw-m3-render",
+    slug: "bmw-m3-build-showcase",
     title: "BMW M3 Build Showcase",
     category: "automotive",
     format: "3D product showcase",
@@ -136,7 +140,7 @@ export const work: WorkVideo[] = [
 
   // ── Documentary ────────────────────────────────────────────────────────────
   {
-    slug: "nn50lkUMCkM",
+    slug: "brainrot-is-ruining-you",
     title: "Brainrot Is Ruining You",
     category: "documentary",
     format: "Documentary film",
@@ -150,7 +154,7 @@ export const work: WorkVideo[] = [
     source: yt("nn50lkUMCkM"),
   },
   {
-    slug: "a75st9hykfM",
+    slug: "why-are-you-becoming-so-lonely",
     title: "Why Are You Becoming So Lonely",
     category: "documentary",
     format: "Video essay, data-led",
@@ -164,7 +168,7 @@ export const work: WorkVideo[] = [
     source: yt("a75st9hykfM"),
   },
   {
-    slug: "g_AUFlUCJow",
+    slug: "america-doesnt-want-us-anymore",
     title: "America Doesn't Want Us Anymore",
     category: "documentary",
     format: "Documentary",
@@ -236,7 +240,7 @@ export const work: WorkVideo[] = [
     source: local("claude-opus-explained"),
   },
   {
-    slug: "cinema-vs-ai",
+    slug: "cinema-craft-versus-ai",
     title: "Cinema Craft Versus AI",
     category: "tech-ai",
     format: "Essay short",
@@ -280,7 +284,7 @@ export const work: WorkVideo[] = [
     source: local("trade-with-our-capital"),
   },
   {
-    slug: "ffb-business-funding",
+    slug: "ffb-business-funding-offer",
     title: "FFB Business Funding Offer",
     category: "finance",
     format: "Talking head",
@@ -308,7 +312,7 @@ export const work: WorkVideo[] = [
     source: local("galici-financial"),
   },
   {
-    slug: "mcdonalds-franchise",
+    slug: "the-franchise-model",
     title: "The Franchise Model",
     category: "finance",
     format: "Explainer short",
@@ -352,7 +356,7 @@ export const work: WorkVideo[] = [
     source: local("dark-seas-division"),
   },
   {
-    slug: "qualified-leads-contractors",
+    slug: "qualified-leads-for-contractors",
     title: "Qualified Leads For Contractors",
     category: "agency-creator",
     format: "Direct response",
@@ -380,7 +384,7 @@ export const work: WorkVideo[] = [
     source: local("in-house-content-team"),
   },
   {
-    slug: "whop-clipping-before-after",
+    slug: "whop-clipping-before-and-after",
     title: "Whop Clipping, Before and After",
     category: "agency-creator",
     format: "Promo, before/after",
@@ -394,7 +398,7 @@ export const work: WorkVideo[] = [
     source: local("whop-clipping-before-after"),
   },
   {
-    slug: "podcast-clip-before-after",
+    slug: "podcast-clip-before-and-after",
     title: "Podcast Clip, Before and After",
     category: "agency-creator",
     format: "Before/after comparison",
@@ -408,7 +412,7 @@ export const work: WorkVideo[] = [
     source: local("podcast-clip-before-after"),
   },
   {
-    slug: "founder-podcast",
+    slug: "founder-podcast-cut",
     title: "Founder Podcast Cut",
     category: "agency-creator",
     format: "Podcast, talking head",
@@ -438,7 +442,7 @@ export const work: WorkVideo[] = [
     source: local("brand-reveal"),
   },
   {
-    slug: "effort-perspective",
+    slug: "the-price-of-effort",
     title: "The Price Of Effort",
     category: "brand-motion",
     format: "Essay short",
@@ -452,7 +456,7 @@ export const work: WorkVideo[] = [
     source: local("effort-perspective"),
   },
   {
-    slug: "einstein-violin",
+    slug: "einstein-and-the-violin",
     title: "Einstein And The Violin",
     category: "brand-motion",
     format: "Essay short",
@@ -466,7 +470,7 @@ export const work: WorkVideo[] = [
     source: local("einstein-violin"),
   },
   {
-    slug: "neon-motion-study",
+    slug: "neon-movement-study",
     title: "Neon Movement Study",
     category: "brand-motion",
     format: "3D animation",
@@ -482,7 +486,7 @@ export const work: WorkVideo[] = [
 
   // ── Health & Fitness ───────────────────────────────────────────────────────
   {
-    slug: "lower-resting-heart-rate",
+    slug: "lower-your-resting-heart-rate",
     title: "Lower Your Resting Heart Rate",
     category: "health-fitness",
     format: "Podcast clip, animated overlay",
@@ -496,7 +500,7 @@ export const work: WorkVideo[] = [
     source: local("lower-resting-heart-rate"),
   },
   {
-    slug: "shredfast-anywhere",
+    slug: "shredfast-get-in-shape-anywhere",
     title: "ShredFast, Get In Shape Anywhere",
     category: "health-fitness",
     format: "UGC product demo",
@@ -530,4 +534,8 @@ export const landscapeWork = work.filter((v) => v.orientation === "landscape");
 
 export function countFor(id: CategoryId) {
   return work.filter((v) => v.category === id).length;
+}
+
+export function findWork(slug: string): WorkVideo | undefined {
+  return work.find((v) => v.slug === slug);
 }

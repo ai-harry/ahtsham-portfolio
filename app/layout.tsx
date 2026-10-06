@@ -20,7 +20,14 @@ const corpta = localFont({
   display: "swap",
 });
 
+// Absolute base for link-preview images. Vercel sets the production host; the
+// fallback only matters for local builds.
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Ahtsham Ali | Motion Graphics & Video Editing",
   description:
     "Motion graphics artist and video editor with a Master's in Marketing Psychology. Short-form ads, brand motion, and documentary edits built for hook and retention.",
