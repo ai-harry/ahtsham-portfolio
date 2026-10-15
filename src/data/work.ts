@@ -33,7 +33,7 @@ export const categories: Category[] = [
   { id: "tech-ai",        label: "Tech & AI",         blurb: "Product explainers and AI breakdowns" },
   { id: "finance",        label: "Finance & Business",blurb: "Funding, trading, and business offers" },
   { id: "agency-creator", label: "Agency & Creator",  blurb: "Service offers, podcast clips, lead gen" },
-  { id: "brand-motion",   label: "Brand & Motion",    blurb: "Brand reveals and pure motion design" },
+  { id: "brand-motion",   label: "Brand & Motion",    blurb: "Founder manifestos and pure motion design" },
   { id: "health-fitness", label: "Health & Fitness",  blurb: "Wellness apps, coaching, performance" },
 ];
 
@@ -78,6 +78,36 @@ const local = (name: string): VideoSource => ({
 });
 
 export const work: WorkVideo[] = [
+  // ── Strongest proof first: before/after pieces lead both rails ───────────
+  {
+    slug: "podcast-clip-before-and-after",
+    title: "Podcast Clip, Before and After",
+    category: "agency-creator",
+    format: "Before/after comparison",
+    style: "Split stack, kinetic captions",
+    orientation: "vertical",
+    duration: "15s",
+    principle: "Demonstrated proof",
+    hook: "Run the raw take underneath the finished one.",
+    note: "The untouched camera file plays in the lower pane for the whole clip while the graded cut runs above it, so the improvement is never claimed in words. Word-by-word captions, cutaway inserts and full-frame graphic cards land only on the upper pane, which lets a prospective client watch the difference appear rather than take it on trust.",
+    thumbnail: "/work/clips/podcast-clip-before-after.jpg",
+    source: local("podcast-clip-before-after"),
+  },
+  {
+    slug: "whop-clipping-before-and-after",
+    title: "Whop Clipping, Before and After",
+    category: "agency-creator",
+    format: "Promo, before/after",
+    style: "Amber grade, split layout",
+    orientation: "landscape",
+    duration: "16s",
+    principle: "Contrast effect",
+    hook: "The gap does the persuading.",
+    note: "Before and after only works when the cut between the two states is tight enough to feel. Labels sit in a fixed layout so the eye compares the same region of frame twice.",
+    thumbnail: "/work/clips/whop-clipping-before-after.jpg",
+    source: local("whop-clipping-before-after"),
+  },
+
   // ── Real Estate ────────────────────────────────────────────────────────────
   {
     slug: "luxury-estate-day-to-night",
@@ -382,34 +412,6 @@ export const work: WorkVideo[] = [
     note: "Pulled from long-form podcast footage and cut to open on the most contested sentence in the conversation, which hands the viewer a position to disagree with inside the first second.",
     thumbnail: "/work/clips/in-house-content-team.jpg",
     source: local("in-house-content-team"),
-  },
-  {
-    slug: "whop-clipping-before-and-after",
-    title: "Whop Clipping, Before and After",
-    category: "agency-creator",
-    format: "Promo, before/after",
-    style: "Amber grade, split layout",
-    orientation: "landscape",
-    duration: "16s",
-    principle: "Contrast effect",
-    hook: "The gap does the persuading.",
-    note: "Before and after only works when the cut between the two states is tight enough to feel. Labels sit in a fixed layout so the eye compares the same region of frame twice.",
-    thumbnail: "/work/clips/whop-clipping-before-after.jpg",
-    source: local("whop-clipping-before-after"),
-  },
-  {
-    slug: "podcast-clip-before-and-after",
-    title: "Podcast Clip, Before and After",
-    category: "agency-creator",
-    format: "Before/after comparison",
-    style: "Split stack, kinetic captions",
-    orientation: "vertical",
-    duration: "15s",
-    principle: "Demonstrated proof",
-    hook: "Run the raw take underneath the finished one.",
-    note: "The untouched camera file plays in the lower pane for the whole clip while the graded cut runs above it, so the improvement is never claimed in words. Word-by-word captions, cutaway inserts and full-frame graphic cards land only on the upper pane, which lets a prospective client watch the difference appear rather than take it on trust.",
-    thumbnail: "/work/clips/podcast-clip-before-after.jpg",
-    source: local("podcast-clip-before-after"),
   },
   {
     slug: "founder-podcast-cut",

@@ -28,9 +28,9 @@ const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Ahtsham Ali | Motion Graphics & Video Editing",
+  title: "Muhammad Ahtsham Ali | AI Video Editor & Motion Designer",
   description:
-    "Motion graphics artist and video editor with a Master's in Marketing Psychology. Short-form ads, brand motion, and documentary edits built for hook and retention.",
+    "AI video editor and motion designer with a Master's in Marketing Psychology. I turn AI generations and raw footage into finished ads, UGC and shorts, plus documentary edits built for hook and retention.",
 };
 
 export default function RootLayout({

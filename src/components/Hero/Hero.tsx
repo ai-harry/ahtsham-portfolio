@@ -284,7 +284,7 @@ export default function Hero() {
           <div ref={baseLayerRef} className="absolute inset-0 w-full h-full">
             <Image
               src={artistImage}
-              alt="Ahtsham Ali - motion graphics artist portrait"
+              alt="Muhammad Ahtsham Ali - AI video editor and motion designer portrait"
               fill
               priority
               placeholder="empty"
@@ -323,7 +323,7 @@ export default function Hero() {
           >
             <Image
               src={mindImage}
-              alt="Ahtsham Ali - marketing psychology portrait illustration"
+              alt="Muhammad Ahtsham Ali - marketing psychology portrait illustration"
               fill
               loading="eager"
               fetchPriority="high"
@@ -397,16 +397,16 @@ frame.pattern_interrupt()
                   >
                     {/* Combined title shown below xl */}
                     <span className="lg:hidden">
-                      &lt;MOTION GRAPHICS ARTIST&gt;{" "}
+                      &lt;AI VIDEO EDITOR&gt;{" "}
                       <span className="text-[#a0a0a0] font-light text-[1.1rem] sm:text-[1.4rem] md:text-[1.6rem] lg:text-[1.8rem]">
                         &
                       </span>
                       <br />
-                      Psychology-led retention editor
+                      Motion designer
                     </span>
                     {/* Left-only title shown at xl+ */}
                     <span className="hidden lg:inline">
-                      &lt;MOTION GRAPHICS ARTIST&gt;
+                      &lt;AI VIDEO EDITOR&gt;
                     </span>
                   </h2>
                 </div>
@@ -419,8 +419,8 @@ frame.pattern_interrupt()
                       mx-auto lg:mx-0"
                   >
                     <span>
-                      Motion design and edits built for the feed and the film.
-                      Hooks, pacing, and graphics engineered frame by frame.
+                      AI gives me raw generations. I turn them into finished ads,
+                      UGC and shorts people actually watch.
                     </span>
                   </p>
                 </div>
@@ -447,11 +447,11 @@ frame.pattern_interrupt()
                     tracking-[-0.02em] text-[#FF4A21] font-medium 
                     mb-3 md:mb-5 leading-[1.05] uppercase drop-shadow-md"
                 >
+                  Master&apos;s in
+                  <br />
                   Marketing
                   <br />
                   Psychology
-                  <br />
-                  Graduate
                 </h2>
                 <p className="font-sans lg:text-[17px] xl:text-[19px] text-[#909090] font-light leading-[1.6] max-w-[320px] ml-auto mr-0">
                   Attention is a behaviour, not an accident. Master&apos;s in

@@ -1,6 +1,6 @@
-# Ahtsham Ali, Portfolio
+# Muhammad Ahtsham Ali, Portfolio
 
-Motion graphics artist and video editor with a Master's in Marketing Psychology.
+AI video editor and motion designer with a Master's in Marketing Psychology.
 Next.js 16, Tailwind CSS v4, and GSAP.
 
 Adapted from the `harry-portfolio-web` template: the layout, motion language, and
@@ -65,7 +65,7 @@ The split tracks the cursor above 1024px wide and rests at 50.6% otherwise.
 
 - About stats (`src/components/About/About.tsx`): 300+ / 40M+ / 6+ are invented.
 - Experience company names and dates (`src/components/Experience/ExperienceData.tsx`).
-- Contact email (`app/(site)/contact/page.tsx`) and the LinkedIn URL in the footer.
+- LinkedIn URL in `src/data/links.ts` (hidden until set).
 - EmailJS keys in `app/(site)/contact/page.tsx` still point at the template's account.
 
 ## Deploying

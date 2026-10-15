@@ -12,7 +12,6 @@ export default function About() {
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  // NOTE: placeholder figures. Replace with Ahtsham's verified numbers before launch.
   const stats = [
     {
       value: "300", suffix: "+", title: "Videos Delivered", desc: "Short form, ads, essays, and documentary",
@@ -184,6 +183,10 @@ export default function About() {
           <p className="text-element-muted text-[1.15rem] md:text-[1.3rem] leading-[1.65] max-w-xl font-medium relative transition-colors duration-[1.5s]">
             <span className="hidden md:block absolute -left-8 top-1 text-5xl font-serif leading-none opacity-40">"</span>
             I&apos;m Ahtsham. I cut video and build motion graphics for people whose work lives or dies on whether anyone watches it. Six years in post production. A Master&apos;s in Marketing Psychology to understand why attention goes where it goes. I work where those two sides meet.
+            <br/><br/>
+            Today I&apos;m senior editor at Aevy TV, cutting long-form documentary on AI, tech and economics.
+            <br/><br/>
+            I use AI tools every day (Seedance, Higgsfield, HeyGen, ElevenLabs) to test more ideas faster. They make the footage. The creative decisions are still mine.
             <br/><br/>
             Most editors cut for taste. I cut for the retention graph, then make it look good on the way there.
           </p>

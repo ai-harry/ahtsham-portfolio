@@ -90,11 +90,11 @@ export default function Services() {
                           THE<br/>SERVICES.
                          </h2>
                          <p className="max-w-3xl text-[#555555] text-lg md:text-3xl font-medium leading-relaxed">
-                          Four things I get hired for. Most projects are one of them; the good ones are two or three at once.
+                          Five things I get hired for. Most projects are one of them; the good ones are two or three at once.
                          </p>
                       </div>
                    ) : (
-                      /* SERVICE LAYERS 1-4 */
+                      /* SERVICE LAYERS 1-5 */
                       <div className="w-full h-full max-w-[120rem] mx-auto px-6 md:px-12 xl:px-24 flex flex-col justify-center">
                          {/* Gargantuan Dimensional Watermark Text */}
                          <span className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-space font-black text-[clamp(6rem,18vw,24rem)] whitespace-nowrap opacity-[0.03] select-none pointer-events-none tracking-tighter ${service.theme.text} mix-blend-normal`}>

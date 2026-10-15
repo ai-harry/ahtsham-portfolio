@@ -25,6 +25,15 @@ export const servicesData: ServiceItem[] = [
     theme: { bg: "bg-[#FAFAFA]", text: "text-[#111111]", accent: "text-[#FF5C39]" }
   },
   {
+    name: "AI Video Ads & AI UGC",
+    watermark: "AI VIDEO",
+    deliverables: "SEEDANCE · HIGGSFIELD · HEYGEN · ELEVENLABS",
+    description:
+      "AI tools give you raw generations. I turn them into ads that hold attention: hook, pacing, captions, sound and a clear offer. Generated shots, AI avatars and AI voiceover, cut and finished like real footage so it doesn't read as \"AI slop\".",
+    tag: "GENERATION TO FINISHED AD",
+    theme: { bg: "bg-[#FF5C39]", text: "text-[#111111]", accent: "text-[#111111]", tagStyle: "bg-[#111111]/10 border-[#111111]/20 text-[#111111]" }
+  },
+  {
     name: "Short-Form Editing",
     watermark: "SHORT FORM",
     deliverables: "REELS · TIKTOK · SHORTS · PAID ADS",
@@ -36,9 +45,9 @@ export const servicesData: ServiceItem[] = [
   {
     name: "Motion Graphics",
     watermark: "MOTION",
-    deliverables: "3D · KINETIC TYPE · BRAND REVEALS",
+    deliverables: "KINETIC TYPE · UI & DEVICE MOCKUPS · EXPLAINER GRAPHICS",
     description:
-      "After Effects and 3D work that carries meaning instead of decorating it. Logo resolves, kinetic typography, product renders, data visualisation, and explainer graphics that make a complicated idea read as obvious.",
+      "After Effects work and 3D compositing that carries meaning instead of decorating it. Kinetic typography, UI and device mockups, data visualisation, and explainer graphics that make a complicated idea read as obvious.",
     tag: "DESIGN & ANIMATION",
     theme: { bg: "bg-[#FAFAFA]", text: "text-[#111111]", accent: "text-[#FF5C39]", tagStyle: "bg-[#FF5C39]/10 border-[#FF5C39]/30 text-[#FF5C39]" }
   },

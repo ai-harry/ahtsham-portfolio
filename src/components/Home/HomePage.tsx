@@ -4,6 +4,7 @@ import DeferredSections from "@/src/components/Home/DeferredSections";
 
 const About = dynamic(() => import("@/src/components/About/About"));
 const Services = dynamic(() => import("@/src/components/Services/Services"));
+const Reviews = dynamic(() => import("@/src/components/Reviews/Reviews"));
 const Footer = dynamic(() => import("@/src/components/Footer/Footer"));
 
 /**
@@ -17,6 +18,7 @@ export default function HomePage() {
       <About />
       <Services />
       <DeferredSections />
+      <Reviews />
       <Footer />
     </main>
   );

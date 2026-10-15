@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+import { socials } from "@/src/data/links";
 
 // ── Toggle this to hide/show the project availability badge ──
 const IS_AVAILABLE = true;
@@ -197,19 +198,17 @@ export default function Footer() {
             ref={socialRef}
             className="flex gap-6 font-medium text-[#A0A0A0] md:justify-end footer-socials"
           >
-            <a href="https://www.youtube.com/@Editer786" target="_blank" rel="noopener noreferrer" className="footer-social-link hover:text-[#FAFAFA] transition-colors" style={{ "--delay": "0ms" } as React.CSSProperties}>
-              YouTube
-            </a>
-            {/* TODO: swap in Ahtsham's real LinkedIn / Instagram handles. */}
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="footer-social-link hover:text-[#FAFAFA] transition-colors" style={{ "--delay": "90ms" } as React.CSSProperties}>
-              LinkedIn
-            </a>
+            {socials.map((s, i) => (
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="footer-social-link hover:text-[#FAFAFA] transition-colors" style={{ "--delay": `${i * 90}ms` } as React.CSSProperties}>
+                {s.label}
+              </a>
+            ))}
           </div>
 
           {/* 5. Two-column copyright bar */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-6 mt-2">
             <p className="text-[#555555] text-sm">
-              &copy; {new Date().getFullYear()} Ahtsham Ali. All rights reserved.
+              &copy; {new Date().getFullYear()} Muhammad Ahtsham Ali. All rights reserved.
             </p>
           </div>
         </div>

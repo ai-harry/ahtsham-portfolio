@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
+import { EMAIL, socials } from "@/src/data/links";
 
 const EMAILJS_SERVICE_ID  = "service_gzc5e2o";
 const EMAILJS_TEMPLATE_ID = "template_gg471li";
@@ -109,15 +110,16 @@ export default function ContactPage() {
           <div className="reveal-item flex flex-col gap-5 md:gap-6">
             <div>
               <h3 className="font-space text-[10px] font-bold uppercase tracking-widest text-[#888888] mb-2">Email</h3>
-              <a href="mailto:iwdatfmp@gmail.com" className="text-base sm:text-lg font-semibold hover:text-[#FF5C39] transition-colors break-all">
-                iwdatfmp@gmail.com
+              <a href={`mailto:${EMAIL}`} className="text-base sm:text-lg font-semibold hover:text-[#FF5C39] transition-colors break-all">
+                {EMAIL}
               </a>
             </div>
             <div>
               <h3 className="font-space text-[10px] font-bold uppercase tracking-widest text-[#888888] mb-2">Socials</h3>
               <div className="flex gap-4">
-                <a href="https://www.youtube.com/@Editer786" target="_blank" rel="noopener noreferrer" className="text-[#555555] hover:text-[#111111] transition-colors font-medium">YouTube</a>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="text-[#555555] hover:text-[#111111] transition-colors font-medium">LinkedIn</a>
+                {socials.map((s) => (
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="text-[#555555] hover:text-[#111111] transition-colors font-medium">{s.label}</a>
+                ))}
               </div>
             </div>
           </div>
