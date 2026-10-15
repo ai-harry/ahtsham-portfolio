@@ -94,7 +94,7 @@ export default function Navbar() {
 
   const closeMobileMenu = () => setIsMobileOpen(false);
 
-  const logoText = "AHTSHAM";
+  const logoText = "MUHAMMAD AHTSHAM ALI";
 
   return (
     <>
@@ -111,14 +111,14 @@ export default function Navbar() {
             className="group flex items-center gap-2"
             onMouseEnter={handleLogoEnter}
           >
-            <span className="flex font-corpta text-xl sm:text-2xl font-medium text-[#111111] tracking-tighter uppercase drop-shadow-sm mix-blend-multiply">
+            <span className="flex whitespace-nowrap font-corpta text-base sm:text-2xl font-medium text-[#111111] tracking-tighter uppercase drop-shadow-sm mix-blend-multiply">
               {logoText.split("").map((char, index) => (
                 <span
                   key={index}
                   ref={(el) => { if (el) logoLettersRef.current[index] = el; }}
                   className="inline-block"
                 >
-                  {char}
+                  {char === " " ? " " : char}
                 </span>
               ))}
             </span>

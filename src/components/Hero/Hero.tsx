@@ -239,7 +239,7 @@ export default function Hero() {
     }
   };
 
-  const title = "AHTSHAM";
+  const title = "MUHAMMAD AHTSHAM ALI";
 
   return (
     <div className="w-full relative">
@@ -268,7 +268,7 @@ export default function Hero() {
                 }}
                 className="inline-block"
               >
-                {char}
+                {char === " " ? " " : char}
               </span>
             ))}
           </h1>
