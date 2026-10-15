@@ -39,7 +39,7 @@ export default function Reviews() {
   if (visible.length === 0) return null;
 
   return (
-    <section id="reviews" className="relative z-20 w-full bg-[#FAFAFA] text-[#111111] py-24 md:py-32">
+    <section id="reviews" className="relative z-20 w-full bg-[#FAFAFA] text-[#111111] pt-24 md:pt-32 pb-[max(7rem,36vw)] md:pb-[max(9rem,16vw)]">
       <div className="max-w-[100rem] mx-auto px-6 md:px-12 xl:px-24">
         <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
           <span className="block w-8 md:w-16 h-px bg-[#FF5C39]" />
