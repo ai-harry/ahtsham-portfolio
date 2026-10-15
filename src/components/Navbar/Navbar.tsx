@@ -94,7 +94,7 @@ export default function Navbar() {
 
   const closeMobileMenu = () => setIsMobileOpen(false);
 
-  const logoText = "MUHAMMAD AHTSHAM ALI";
+  const logoText = "MUHAMMAD AHTSHAM";
 
   return (
     <>

@@ -94,8 +94,8 @@ export const work: WorkVideo[] = [
     source: local("podcast-clip-before-after"),
   },
   {
-    slug: "whop-clipping-before-and-after",
-    title: "Whop Clipping, Before and After",
+    slug: "clipping-promo-before-and-after",
+    title: "Clipping Promo, Before and After",
     category: "agency-creator",
     format: "Promo, before/after",
     style: "Amber grade, split layout",

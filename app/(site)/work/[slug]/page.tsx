@@ -17,7 +17,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const video = findWork((await params).slug);
   if (!video) return {};
-  const title = `${video.title} | Muhammad Ahtsham Ali`;
+  const title = `${video.title} | Muhammad Ahtsham`;
   const description = `${video.format}, ${video.duration}. ${video.hook}`;
   return {
     title,

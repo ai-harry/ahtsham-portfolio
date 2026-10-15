@@ -1,4 +1,4 @@
-# Muhammad Ahtsham Ali, Portfolio
+# Muhammad Ahtsham, Portfolio
 
 AI video editor and motion designer with a Master's in Marketing Psychology.
 Next.js 16, Tailwind CSS v4, and GSAP.

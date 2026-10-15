@@ -182,7 +182,7 @@ export default function About() {
           
           <p className="text-element-muted text-[1.15rem] md:text-[1.3rem] leading-[1.65] max-w-xl font-medium relative transition-colors duration-[1.5s]">
             <span className="hidden md:block absolute -left-8 top-1 text-5xl font-serif leading-none opacity-40">"</span>
-            I&apos;m Muhammad Ahtsham Ali. I cut video and build motion graphics for people whose work lives or dies on whether anyone watches it. Six years in post production. A Master&apos;s in Marketing Psychology to understand why attention goes where it goes. I work where those two sides meet.
+            I&apos;m Muhammad Ahtsham. I cut video and build motion graphics for people whose work lives or dies on whether anyone watches it. Six years in post production. A Master&apos;s in Marketing Psychology to understand why attention goes where it goes. I work where those two sides meet.
             <br/><br/>
             Today I&apos;m senior editor at Aevy TV, cutting long-form documentary on AI, tech and economics.
             <br/><br/>

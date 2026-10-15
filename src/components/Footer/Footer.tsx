@@ -208,7 +208,7 @@ export default function Footer() {
           {/* 5. Two-column copyright bar */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-6 mt-2">
             <p className="text-[#555555] text-sm">
-              &copy; {new Date().getFullYear()} Muhammad Ahtsham Ali. All rights reserved.
+              &copy; {new Date().getFullYear()} Muhammad Ahtsham. All rights reserved.
             </p>
           </div>
         </div>

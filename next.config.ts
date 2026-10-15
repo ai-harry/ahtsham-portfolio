@@ -6,6 +6,16 @@ const nextConfig: NextConfig = {
     qualities: [75, 80, 82],
     minimumCacheTTL: 60 * 60 * 24 * 31,
   },
+  // Old links to renamed pieces keep working.
+  async redirects() {
+    return [
+      {
+        source: "/work/whop-clipping-before-and-after",
+        destination: "/work/clipping-promo-before-and-after",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

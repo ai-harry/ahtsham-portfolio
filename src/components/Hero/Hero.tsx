@@ -239,7 +239,7 @@ export default function Hero() {
     }
   };
 
-  const title = "MUHAMMAD AHTSHAM ALI";
+  const title = "MUHAMMAD AHTSHAM";
 
   return (
     <div className="w-full relative">
@@ -284,7 +284,7 @@ export default function Hero() {
           <div ref={baseLayerRef} className="absolute inset-0 w-full h-full">
             <Image
               src={artistImage}
-              alt="Muhammad Ahtsham Ali - AI video editor and motion designer portrait"
+              alt="Muhammad Ahtsham - AI video editor and motion designer portrait"
               fill
               priority
               placeholder="empty"
@@ -323,7 +323,7 @@ export default function Hero() {
           >
             <Image
               src={mindImage}
-              alt="Muhammad Ahtsham Ali - marketing psychology portrait illustration"
+              alt="Muhammad Ahtsham - marketing psychology portrait illustration"
               fill
               loading="eager"
               fetchPriority="high"
