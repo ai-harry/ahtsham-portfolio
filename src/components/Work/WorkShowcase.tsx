@@ -229,9 +229,32 @@ export default function WorkShowcase() {
           <p className="mt-3 text-sm text-[#888888] font-medium">{activeBlurb}</p>
         </div>
 
+        {/* ── Landscape block: first, so the featured SaaS piece leads ── */}
+        {landscape.length > 0 && (
+          <div className="mt-10">
+            <div className="w-full max-w-[90rem] mx-auto px-6 md:px-12 mb-5">
+              <span className="font-space text-[11px] font-bold uppercase tracking-[0.2em] text-[#999999]">
+                Landscape · 16:9 · {landscape.length}
+              </span>
+            </div>
+            <div className="w-full max-w-[90rem] mx-auto px-6 md:px-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                {landscape.map((v, i) => (
+                  <WorkCard
+                    key={v.slug}
+                    video={v}
+                    index={i}
+                    feature={landscape.length > 2 && i === 0}
+                    onOpen={openVideo}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
         {/* ── Vertical block ── */}
         {vertical.length > 0 && (
-          <div className="mt-10">
+          <div className="mt-16">
             <div className="w-full max-w-[90rem] mx-auto px-6 md:px-12 flex items-center justify-between gap-4 mb-5">
               <span className="font-space text-[11px] font-bold uppercase tracking-[0.2em] text-[#999999]">
                 Vertical · 9:16 · {vertical.length}
@@ -292,29 +315,6 @@ export default function WorkShowcase() {
           </div>
         )}
 
-        {/* ── Landscape block ── */}
-        {landscape.length > 0 && (
-          <div className="mt-16">
-            <div className="w-full max-w-[90rem] mx-auto px-6 md:px-12 mb-5">
-              <span className="font-space text-[11px] font-bold uppercase tracking-[0.2em] text-[#999999]">
-                Landscape · 16:9 · {landscape.length}
-              </span>
-            </div>
-            <div className="w-full max-w-[90rem] mx-auto px-6 md:px-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-                {landscape.map((v, i) => (
-                  <WorkCard
-                    key={v.slug}
-                    video={v}
-                    index={i}
-                    feature={landscape.length > 2 && i === 0}
-                    onOpen={openVideo}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
       </section>
 
       <VideoLightbox video={active} onClose={closeVideo} />

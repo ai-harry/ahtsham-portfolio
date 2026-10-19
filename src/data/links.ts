@@ -2,7 +2,7 @@
  * Contact details and social profiles, shared by the footer and the contact
  * page so they can never drift apart.
  */
-export const EMAIL = "mahtasham2123@gmail.com";
+export const EMAIL = "mahtsham2123@gmail.com";
 
 export const UPWORK_URL = "https://www.upwork.com/freelancers/ahtshameditor";
 

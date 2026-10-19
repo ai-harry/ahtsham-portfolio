@@ -364,7 +364,7 @@ frame.pattern_interrupt()
           className="absolute inset-0 z-[45] w-full h-full pointer-events-none"
         >
           <div
-            className="relative w-full max-w-[90rem] mx-auto h-full px-6 lg:px-16 
+            className="relative w-full max-w-[90rem] 2xl:max-w-[120rem] mx-auto h-full px-6 lg:px-16 
               flex flex-col lg:flex-row items-center 
               max-lg:justify-end max-lg:pt-4 max-sm:pt-2 
               max-lg:pb-[48vh] sm:max-lg:pb-[50vh] md:max-lg:pb-[52vh] 
@@ -407,9 +407,11 @@ frame.pattern_interrupt()
                     </span>
                     {/* Left-only title shown at xl+ */}
                     <span className="hidden lg:inline whitespace-nowrap">
-                      &lt;MOTION DESIGNER
+                      &lt;MOTION
                       <br />
-                      &amp; VIDEO EDITOR&gt;
+                      DESIGNER &amp;
+                      <br />
+                      VIDEO EDITOR&gt;
                     </span>
                   </h2>
                 </div>
