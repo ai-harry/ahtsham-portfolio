@@ -14,6 +14,16 @@ const nextConfig: NextConfig = {
         destination: "/work/clipping-promo-before-and-after",
         permanent: true,
       },
+      {
+        source: "/work/conways-game-of-life",
+        destination: "/work/ai-agents-explained",
+        permanent: true,
+      },
+      {
+        source: "/work/brand-reveal",
+        destination: "/work/founder-manifesto",
+        permanent: true,
+      },
     ];
   },
   async headers() {

@@ -14,6 +14,7 @@
  */
 
 export type CategoryId =
+  | "saas-product"
   | "real-estate"
   | "automotive"
   | "finance"
@@ -27,6 +28,7 @@ export type Category = { id: CategoryId; label: string; blurb: string };
 
 /** Filter order is deliberate: the verticals people search for come first. */
 export const categories: Category[] = [
+  { id: "saas-product",   label: "SaaS & Product",    blurb: "Product explainers and launch videos" },
   { id: "real-estate",    label: "Real Estate",       blurb: "Property tours, listings, investor results" },
   { id: "automotive",     label: "Automotive",        blurb: "Car showcases and 3D vehicle renders" },
   { id: "documentary",    label: "Documentary",       blurb: "Long-form films and video essays" },
@@ -78,7 +80,21 @@ const local = (name: string): VideoSource => ({
 });
 
 export const work: WorkVideo[] = [
-  // ── Strongest proof first: before/after pieces lead both rails ───────────
+  // ── Lead with the pieces the Upwork profile leads with, in its order ─────
+  {
+    slug: "whatsapp-booking-automation",
+    title: "WhatsApp Booking Automation",
+    category: "saas-product",
+    format: "SaaS explainer",
+    style: "Teal UI, device mockups",
+    orientation: "landscape",
+    duration: "21s",
+    principle: "Cognitive ease",
+    hook: "Make the product look simpler than the problem.",
+    note: "Screen recordings rebuilt as clean device mockups, sequenced laptop to phone so cross-platform use is shown rather than claimed. Every step is staged to make the software feel inevitable.",
+    thumbnail: "/work/clips/whatsapp-booking-automation.jpg",
+    source: local("whatsapp-booking-automation"),
+  },
   {
     slug: "podcast-clip-before-and-after",
     title: "Podcast Clip, Before and After",
@@ -107,6 +123,63 @@ export const work: WorkVideo[] = [
     thumbnail: "/work/clips/whop-clipping-before-after.jpg",
     source: local("whop-clipping-before-after"),
   },
+  {
+    slug: "trade-with-our-capital",
+    title: "Trade With Our Capital",
+    category: "finance",
+    format: "Talking head, UI overlay",
+    style: "Minimal, platform UI",
+    orientation: "vertical",
+    duration: "39s",
+    principle: "Risk reversal",
+    hook: "Answer the objection before it forms.",
+    note: "Translucent trading-platform overlays borrow the visual grammar of the real product, so the numbers read as a live account rather than as marketing. The objection is handled in the first line.",
+    thumbnail: "/work/clips/trade-with-our-capital.jpg",
+    source: local("trade-with-our-capital"),
+  },
+  {
+    slug: "dark-seas-division",
+    title: "Dark Seas Division",
+    category: "agency-creator",
+    format: "Brand film",
+    style: "Neon studio, magenta key",
+    orientation: "vertical",
+    duration: "15s",
+    principle: "Social proof",
+    hook: "Show the room before you make the claim.",
+    note: "Coloured practicals build depth behind the subject so a single-camera setup still reads as a studio. Pacing sits slightly behind the music, which makes the agency feel considered rather than urgent.",
+    thumbnail: "/work/clips/dark-seas-division.jpg",
+    source: local("dark-seas-division"),
+  },
+  {
+    slug: "einstein-and-the-violin",
+    title: "Einstein And The Violin",
+    category: "brand-motion",
+    format: "Essay short",
+    style: "Vintage monochrome, 3D props",
+    orientation: "vertical",
+    duration: "52s",
+    principle: "Curiosity gap",
+    hook: "Set up the physicist, pay off the musician.",
+    note: "Period monochrome and film grain composited with modern 3D props. Tactile objects, a pocket watch and a violin, are used as metaphors for time and craft instead of stating either out loud.",
+    thumbnail: "/work/clips/einstein-violin.jpg",
+    source: local("einstein-violin"),
+  },
+  {
+    slug: "brainrot-is-ruining-you",
+    title: "Brainrot Is Ruining You",
+    category: "documentary",
+    format: "Documentary film",
+    style: "Moody, deep blacks",
+    orientation: "landscape",
+    duration: "23 min",
+    principle: "Threat salience",
+    hook: "A film about the attention economy, cut to survive it.",
+    note: "Twenty-three minutes held together by nested open loops: each chapter answers the last question and opens a new one. Viral clips are composited inside the cinematic frame rather than cut to full screen, so the platforms literally intrude on the shot.",
+    thumbnail: "/work/long/nn50lkUMCkM.jpg",
+    source: yt("nn50lkUMCkM"),
+  },
+
 
   // ── Real Estate ────────────────────────────────────────────────────────────
   {
@@ -170,20 +243,6 @@ export const work: WorkVideo[] = [
 
   // ── Documentary ────────────────────────────────────────────────────────────
   {
-    slug: "brainrot-is-ruining-you",
-    title: "Brainrot Is Ruining You",
-    category: "documentary",
-    format: "Documentary film",
-    style: "Moody, deep blacks",
-    orientation: "landscape",
-    duration: "23 min",
-    principle: "Threat salience",
-    hook: "A film about the attention economy, cut to survive it.",
-    note: "Twenty-three minutes held together by nested open loops: each chapter answers the last question and opens a new one. Viral clips are composited inside the cinematic frame rather than cut to full screen, so the platforms literally intrude on the shot.",
-    thumbnail: "/work/long/nn50lkUMCkM.jpg",
-    source: yt("nn50lkUMCkM"),
-  },
-  {
     slug: "why-are-you-becoming-so-lonely",
     title: "Why Are You Becoming So Lonely",
     category: "documentary",
@@ -228,8 +287,8 @@ export const work: WorkVideo[] = [
     source: local("anthropic-model-announcement"),
   },
   {
-    slug: "conways-game-of-life",
-    title: "Conway's Game of Life",
+    slug: "ai-agents-explained",
+    title: "AI Agents, Explained",
     category: "tech-ai",
     format: "Talking head, 3D inserts",
     style: "Blue studio LED, 3D flythrough",
@@ -283,36 +342,8 @@ export const work: WorkVideo[] = [
     thumbnail: "/work/clips/cinema-vs-ai.jpg",
     source: local("cinema-vs-ai"),
   },
-  {
-    slug: "whatsapp-booking-automation",
-    title: "WhatsApp Booking Automation",
-    category: "tech-ai",
-    format: "SaaS explainer",
-    style: "Teal UI, device mockups",
-    orientation: "landscape",
-    duration: "21s",
-    principle: "Cognitive ease",
-    hook: "Make the product look simpler than the problem.",
-    note: "Screen recordings rebuilt as clean device mockups, sequenced laptop to phone so cross-platform use is shown rather than claimed. Every step is staged to make the software feel inevitable.",
-    thumbnail: "/work/clips/whatsapp-booking-automation.jpg",
-    source: local("whatsapp-booking-automation"),
-  },
 
   // ── Finance & Business ─────────────────────────────────────────────────────
-  {
-    slug: "trade-with-our-capital",
-    title: "Trade With Our Capital",
-    category: "finance",
-    format: "Talking head, UI overlay",
-    style: "Minimal, platform UI",
-    orientation: "vertical",
-    duration: "39s",
-    principle: "Risk reversal",
-    hook: "Answer the objection before it forms.",
-    note: "Translucent trading-platform overlays borrow the visual grammar of the real product, so the numbers read as a live account rather than as marketing. The objection is handled in the first line.",
-    thumbnail: "/work/clips/trade-with-our-capital.jpg",
-    source: local("trade-with-our-capital"),
-  },
   {
     slug: "ffb-business-funding-offer",
     title: "FFB Business Funding Offer",
@@ -372,20 +403,6 @@ export const work: WorkVideo[] = [
     source: local("what-you-get-with-my-edits"),
   },
   {
-    slug: "dark-seas-division",
-    title: "Dark Seas Division",
-    category: "agency-creator",
-    format: "Brand film",
-    style: "Neon studio, magenta key",
-    orientation: "vertical",
-    duration: "15s",
-    principle: "Social proof",
-    hook: "Show the room before you make the claim.",
-    note: "Coloured practicals build depth behind the subject so a single-camera setup still reads as a studio. Pacing sits slightly behind the music, which makes the agency feel considered rather than urgent.",
-    thumbnail: "/work/clips/dark-seas-division.jpg",
-    source: local("dark-seas-division"),
-  },
-  {
     slug: "qualified-leads-for-contractors",
     title: "Qualified Leads For Contractors",
     category: "agency-creator",
@@ -430,16 +447,16 @@ export const work: WorkVideo[] = [
 
   // ── Brand & Motion ─────────────────────────────────────────────────────────
   {
-    slug: "brand-reveal",
-    title: "Brand Reveal",
+    slug: "founder-manifesto",
+    title: "Founder Manifesto",
     category: "brand-motion",
-    format: "Pure motion graphics",
-    style: "Light bloom, liquid type",
+    format: "Founder talking head",
+    style: "Cool LED, bold captions",
     orientation: "vertical",
     duration: "13s",
-    principle: "Peak-end rule",
-    hook: "Build tension, spend it all on the resolve.",
-    note: "No footage and no voice. Translucent type flows through a light-bloomed field with the easing tightening as the sequence runs, so the final beat reads as arrival rather than as a stop.",
+    principle: "Direct address",
+    hook: "Let the founder say it, and make every word land.",
+    note: "A founder speaking straight to camera under cool LED light. Bold captions carry the key phrases word by word, so the message lands with the sound off and the conviction reads in the first second.",
     thumbnail: "/work/clips/brand-reveal.jpg",
     source: local("brand-reveal"),
   },
@@ -456,20 +473,6 @@ export const work: WorkVideo[] = [
     note: "Scale is used as the argument: an oversized backpack and a giant paintbrush put a gym membership and a mountain carry in the same frame. Visual irony carries a point that narration would flatten.",
     thumbnail: "/work/clips/effort-perspective.jpg",
     source: local("effort-perspective"),
-  },
-  {
-    slug: "einstein-and-the-violin",
-    title: "Einstein And The Violin",
-    category: "brand-motion",
-    format: "Essay short",
-    style: "Vintage monochrome, 3D props",
-    orientation: "vertical",
-    duration: "52s",
-    principle: "Curiosity gap",
-    hook: "Set up the physicist, pay off the musician.",
-    note: "Period monochrome and film grain composited with modern 3D props. Tactile objects, a pocket watch and a violin, are used as metaphors for time and craft instead of stating either out loud.",
-    thumbnail: "/work/clips/einstein-violin.jpg",
-    source: local("einstein-violin"),
   },
   {
     slug: "neon-movement-study",

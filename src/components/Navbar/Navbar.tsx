@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
+import { UPWORK_URL } from "@/src/data/links";
 
 /** Smooth-scroll to a section id; retries while the node is missing (e.g. dynamic imports). */
 function scrollToAnchorId(id: string) {
@@ -104,7 +105,7 @@ export default function Navbar() {
           : "top-4 sm:top-6 py-3 sm:py-4"
           }`}
       >
-        <div className="w-full h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between md:justify-center md:gap-16 lg:gap-32">
+        <div className="w-full h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between md:justify-center md:gap-8 lg:gap-16 xl:gap-20">
           {/* Logo */}
           <Link
             href="/"
@@ -170,8 +171,15 @@ export default function Navbar() {
               >
                 Let&apos;s Talk
               </Link>
-
             </div>
+            <a
+              href={UPWORK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:inline-flex whitespace-nowrap rounded-full border border-[#111111] px-5 py-2 text-sm font-semibold text-[#111111] transition-all duration-300 hover:border-[#FF4A21] hover:bg-[#FF4A21]"
+            >
+              Hire me on Upwork
+            </a>
           </div>
 
           {/* Mobile Nav Toggle */}
@@ -241,6 +249,15 @@ export default function Navbar() {
                 {item.name}
               </Link>
             ))}
+            <a
+              href={UPWORK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMobileMenu}
+              className="w-fit rounded-full border-2 border-[#111111] px-6 py-3 font-space text-base font-bold uppercase text-[#111111] hover:border-[#FF4A21] hover:bg-[#FF4A21] transition-all"
+            >
+              Hire me on Upwork
+            </a>
           </div>
         </div>
       </div>

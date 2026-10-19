@@ -186,7 +186,7 @@ export default function About() {
             <br/><br/>
             Today I&apos;m senior editor at Aevy TV, cutting long-form documentary on AI, tech and economics.
             <br/><br/>
-            I use AI tools every day (Seedance, Higgsfield, HeyGen, ElevenLabs) to test more ideas faster. They make the footage. The creative decisions are still mine.
+            I use AI tools every day (Seedance, Higgsfield, HeyGen, ElevenLabs). AI makes the footage faster. The creative decisions are still mine.
             <br/><br/>
             Most editors cut for taste. I cut for the retention graph, then make it look good on the way there.
           </p>

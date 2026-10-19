@@ -28,14 +28,14 @@ const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Muhammad Ahtsham | AI Video Editor & Motion Designer",
+  title: "Muhammad Ahtsham | Motion Designer & Video Editor",
   description:
-    "AI video editor and motion designer with a Master's in Marketing Psychology. I turn AI generations and raw footage into finished ads, UGC and shorts, plus documentary edits built for hook and retention.",
+    "Motion designer and video editor with a Master's in Marketing Psychology. SaaS explainers, product launch videos, AI video ads and short-form edits built to hook fast and hold attention.",
   authors: [{ name: "Muhammad Ahtsham" }],
   openGraph: {
-    title: "Muhammad Ahtsham | AI Video Editor & Motion Designer",
+    title: "Muhammad Ahtsham | Motion Designer & Video Editor",
     description:
-      "AI video editor and motion designer with a Master's in Marketing Psychology. AI video ads, UGC, shorts and documentary edits built for hook and retention.",
+      "Motion designer and video editor with a Master's in Marketing Psychology. SaaS explainers, product launch videos, AI video ads and short-form edits built to hook fast and hold attention.",
     siteName: "Muhammad Ahtsham",
     type: "website",
   },

@@ -66,7 +66,8 @@ export default function Hero() {
             opacity: 1,
             duration: 1.5,
             ease: "power4.out",
-            stagger: 0.1,
+            // Fixed total spread, so a longer name doesn't delay the portrait.
+            stagger: { amount: 0.6 },
           },
           "-=0.9"
         );
@@ -284,7 +285,7 @@ export default function Hero() {
           <div ref={baseLayerRef} className="absolute inset-0 w-full h-full">
             <Image
               src={artistImage}
-              alt="Muhammad Ahtsham - AI video editor and motion designer portrait"
+              alt="Muhammad Ahtsham - motion designer and video editor portrait"
               fill
               priority
               placeholder="empty"
@@ -390,23 +391,25 @@ frame.pattern_interrupt()
                       sm:text-[clamp(1.6rem,5vw,2.1rem)] 
                       md:text-[clamp(1.8rem,4vw,2.4rem)] 
                       lg:text-[clamp(2rem,3.5vw,2.8rem)] 
-                      xl:text-[4rem] 
+                      xl:text-[2.75rem] 
                       tracking-[-0.02em] text-[#FF4A21] font-medium 
                       mb-2 sm:mb-3 md:mb-4 pb-[0.14em]
                       leading-[0.96] uppercase drop-shadow-md"
                   >
                     {/* Combined title shown below xl */}
                     <span className="lg:hidden">
-                      &lt;AI VIDEO EDITOR&gt;{" "}
+                      &lt;MOTION DESIGNER{" "}
                       <span className="text-[#a0a0a0] font-light text-[1.1rem] sm:text-[1.4rem] md:text-[1.6rem] lg:text-[1.8rem]">
                         &
                       </span>
                       <br />
-                      Motion designer
+                      VIDEO EDITOR&gt;
                     </span>
                     {/* Left-only title shown at xl+ */}
-                    <span className="hidden lg:inline">
-                      &lt;AI VIDEO EDITOR&gt;
+                    <span className="hidden lg:inline whitespace-nowrap">
+                      &lt;MOTION DESIGNER
+                      <br />
+                      &amp; VIDEO EDITOR&gt;
                     </span>
                   </h2>
                 </div>
@@ -419,8 +422,8 @@ frame.pattern_interrupt()
                       mx-auto lg:mx-0"
                   >
                     <span>
-                      AI gives me raw generations. I turn them into finished ads,
-                      UGC and shorts people actually watch.
+                      SaaS explainers, product launches and ads that make a
+                      complicated product look simple.
                     </span>
                   </p>
                 </div>

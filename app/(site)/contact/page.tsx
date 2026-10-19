@@ -101,7 +101,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="reveal-item font-sans text-[0.98rem] md:text-[1.06rem] text-[#555555] leading-relaxed max-w-[31rem] mb-8 md:mb-10">
-            I take on a few clients at a time. Short-form ads, brand motion, YouTube long form, or a channel that is getting views but losing people halfway. That is the space I work in.
+            I take on a few clients at a time. SaaS explainers, product launches, short-form ads, or a channel that is getting views but losing people halfway. That is the space I work in.
             <br /><br />
             Send a note with a link to what you are making. I read every one.
           </p>
@@ -138,7 +138,7 @@ export default function ContactPage() {
                 </div>
                 <h2 className="font-space text-3xl font-black uppercase tracking-tight text-[#111111] mb-3">Message Sent!</h2>
                 <p className="text-[#555555] mb-8 text-base leading-relaxed max-w-sm">
-                  Thank you for reaching out. I&apos;ll review your message and get back to you shortly.
+                  Thanks, I&apos;ll reply within 24 hours.
                 </p>
                 <button
                   onClick={() => setIsSubmitted(false)}
