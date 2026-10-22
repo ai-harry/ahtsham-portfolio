@@ -16,7 +16,8 @@
 export type CategoryId =
   | "saas-product"
   | "ugc-ads"
-  | "product-ads"
+  | "ai-ugc-ads"
+  | "ai-product-ads"
   | "real-estate"
   | "automotive"
   | "finance"
@@ -32,7 +33,8 @@ export type Category = { id: CategoryId; label: string; blurb: string };
 export const categories: Category[] = [
   { id: "saas-product",   label: "SaaS & Product",    blurb: "Product explainers and launch videos" },
   { id: "ugc-ads",        label: "UGC Ads",           blurb: "Creator-style ads, app demos and unboxings" },
-  { id: "product-ads",    label: "Product Commercials",blurb: "AI-generated product films for beauty and fashion" },
+  { id: "ai-ugc-ads",     label: "AI UGC Ads",        blurb: "AI-generated creator ads for beauty and lifestyle" },
+  { id: "ai-product-ads", label: "AI Product Ads",    blurb: "AI-generated product films for beauty and fashion" },
   { id: "real-estate",    label: "Real Estate",       blurb: "Property tours, listings, investor results" },
   { id: "automotive",     label: "Automotive",        blurb: "Car showcases and 3D vehicle renders" },
   { id: "documentary",    label: "Documentary",       blurb: "Long-form films and video essays" },
@@ -313,10 +315,12 @@ export const work: WorkVideo[] = [
     thumbnail: "/work/clips/pr-unboxing-ugc.jpg",
     source: local("pr-unboxing-ugc"),
   },
+
+  // ── AI UGC Ads ─────────────────────────────────────────────────────────────
   {
     slug: "lash-serum-tutorial",
     title: "Lash Serum Tutorial",
-    category: "ugc-ads",
+    category: "ai-ugc-ads",
     format: "AI UGC ad",
     style: "Selfie framing, home setting",
     orientation: "vertical",
@@ -330,7 +334,7 @@ export const work: WorkVideo[] = [
   {
     slug: "mascara-from-a-single-photo",
     title: "Mascara Ad From A Single Photo",
-    category: "ugc-ads",
+    category: "ai-ugc-ads",
     format: "AI UGC ad",
     style: "Bathroom mirror, natural light",
     orientation: "vertical",
@@ -344,7 +348,7 @@ export const work: WorkVideo[] = [
   {
     slug: "skincare-morning-routine",
     title: "Skincare Morning Routine",
-    category: "ugc-ads",
+    category: "ai-ugc-ads",
     format: "AI UGC ad",
     style: "Warm daylight, lifestyle",
     orientation: "vertical",
@@ -358,7 +362,7 @@ export const work: WorkVideo[] = [
   {
     slug: "iced-coffee-street-style",
     title: "Iced Coffee Street Style",
-    category: "ugc-ads",
+    category: "ai-ugc-ads",
     format: "AI UGC ad",
     style: "Dusk street, warm grade",
     orientation: "vertical",
@@ -370,11 +374,11 @@ export const work: WorkVideo[] = [
     source: local("iced-coffee-street-style"),
   },
 
-  // ── Product Commercials ────────────────────────────────────────────────────
+  // ── AI Product Ads ─────────────────────────────────────────────────────────
   {
     slug: "air-force-night-repair-reel",
     title: "Sneaker And Serum Product Reel",
-    category: "product-ads",
+    category: "ai-product-ads",
     format: "AI product ad reel",
     style: "Black studio, macro detail",
     orientation: "landscape",
@@ -388,7 +392,7 @@ export const work: WorkVideo[] = [
   {
     slug: "night-repair-product-film",
     title: "Night Repair Serum Film",
-    category: "product-ads",
+    category: "ai-product-ads",
     format: "AI product ad",
     style: "Amber light, luxury beauty",
     orientation: "landscape",
